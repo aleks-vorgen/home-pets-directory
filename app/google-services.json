@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "707457184756",
+    "project_id": "test-17f86",
+    "storage_bucket": "test-17f86.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:707457184756:android:8706674d394dd551ca3fa1",
+        "android_client_info": {
+          "package_name": "com.example.odz"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAL8WC68E1qn1O1dFs9A8lxR_dR6lSq5Vg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
