@@ -1,5 +1,9 @@
 package com.example.odz.model
 
-enum class PetType(s: String) {
-    CAT("Cat"), DOG("Dog"), DEFAULT("Unknown")
+class PetType {
+    companion object {
+        const val CAT = "Cat"
+        const val DOG = "Dog"
+        const val DEFAULT = "Unknown"
+    }
 }
