@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddPetFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_primary_color"
+        android:paddingHorizontal="80dp">
+
+        <Button
+            android:id="@+id/btn_savePet"
+            style="@style/button_primary_style"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:shadowColor="#FFFFFF"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="10"
+            android:text="@string/btn_save"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etPetAge" />
+
+        <EditText
+            android:id="@+id/etPetName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:ems="10"
+            android:fontFamily="@font/montserrat"
+            android:hint="@string/etPetName_placeholder"
+            android:inputType="text"
+            android:paddingHorizontal="15dp"
+            android:singleLine="true"
+            android:textColor="@color/text_default_color"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@+id/etPetBreed"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <EditText
+            android:id="@+id/etPetBreed"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:ems="10"
+            android:fontFamily="@font/montserrat"
+            android:hint="@string/etPetBreed_placeholder"
+            android:inputType="text"
+            android:paddingHorizontal="15dp"
+            android:singleLine="true"
+            android:textColor="@color/text_default_color"
+            app:layout_constraintBottom_toTopOf="@+id/spPetType"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etPetName" />
+
+        <EditText
+            android:id="@+id/etPetAge"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:ems="3"
+            android:hint="@string/etPetAge_placeholder"
+            android:inputType="numberSigned"
+            android:textColor="@color/text_default_color"
+            app:layout_constraintBottom_toTopOf="@+id/btn_savePet"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spPetType" />
+
+        <Spinner
+            android:id="@+id/spPetType"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:paddingVertical="10dp"
+            android:spinnerMode="dropdown"
+            app:layout_constraintBottom_toTopOf="@+id/etPetAge"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etPetBreed"></Spinner>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

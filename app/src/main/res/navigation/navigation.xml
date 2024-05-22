@@ -3,4 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/titleFragment"/>
+    app:startDestination="@id/myPets">
+    <fragment
+        android:id="@+id/myPets"
+        android:name="com.example.odz.PetListFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_pet_list">
+        <action
+            android:id="@+id/action_petListFragment_to_addPetFragment"
+            app:destination="@id/addPet" />
+    </fragment>
+    <fragment
+        android:id="@+id/addPet"
+        android:name="com.example.odz.AddPetFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_add_pet">
+        <action
+            android:id="@+id/action_addPetFragment_to_petListFragment"
+            app:destination="@id/myPets" />
+    </fragment>
+</navigation>

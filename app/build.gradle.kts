@@ -1,10 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
-
-
-    //Google services
-    id("com.google.gms.google-services")
+    id("org.jetbrains.kotlin.kapt")
 }
 
 android {
@@ -56,12 +53,10 @@ android {
 }
 
 dependencies {
-    //Google services
-    implementation(libs.firebase.analytics)
-    implementation(platform(libs.firebase.bom))
-    implementation(libs.firebase.database.ktx)
-
     //SQLite
+    implementation(libs.androidx.room.room.runtime)
+    kapt(libs.androidx.room.compiler)
+    kapt(libs.androidx.room.room.compiler)
     implementation(libs.androidx.room.ktx)
     implementation(libs.androidx.lifecycle.livedata.ktx)
 

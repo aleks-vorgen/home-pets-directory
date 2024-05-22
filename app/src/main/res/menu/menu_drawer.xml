@@ -6,10 +6,10 @@
 
     <group>
         <item
-            android:id="@+id/get_pets_item"
+            android:id="@+id/myPets"
             android:title="@string/GetAllPets" />
         <item
-            android:id="@+id/add_pet_item"
+            android:id="@+id/addPet"
             android:title="@string/AddPet" />
     </group>
 </menu>
