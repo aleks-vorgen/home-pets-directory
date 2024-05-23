@@ -3,6 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:minHeight="70dp"
-    android:background="@color/background_action_bar_color">
+    android:background="@color/background_secondary_color">
 
 </androidx.constraintlayout.widget.ConstraintLayout>

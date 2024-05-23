@@ -27,7 +27,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etPetAge" />
+            app:layout_constraintTop_toBottomOf="@+id/spPetType" />
 
         <EditText
             android:id="@+id/etPetName"
@@ -44,6 +44,7 @@
             android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@+id/etPetBreed"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="packed" />
@@ -61,8 +62,9 @@
             android:paddingHorizontal="15dp"
             android:singleLine="true"
             android:textColor="@color/text_default_color"
-            app:layout_constraintBottom_toTopOf="@+id/spPetType"
+            app:layout_constraintBottom_toTopOf="@+id/etPetAge"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etPetName" />
 
@@ -70,31 +72,50 @@
             android:id="@+id/etPetAge"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
             android:ems="3"
+            android:fontFamily="@font/montserrat"
             android:hint="@string/etPetAge_placeholder"
             android:inputType="numberSigned"
+            android:paddingHorizontal="15dp"
             android:textColor="@color/text_default_color"
-            app:layout_constraintBottom_toTopOf="@+id/btn_savePet"
+            app:layout_constraintBottom_toTopOf="@+id/spPetType"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/spPetType" />
+            app:layout_constraintTop_toBottomOf="@+id/etPetBreed" />
 
-        <Spinner
+        <com.skydoves.powerspinner.PowerSpinnerView
             android:id="@+id/spPetType"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
+            android:fontFamily="@font/montserrat"
+            android:hint="@string/etPetType_placeholder"
+            android:paddingHorizontal="15dp"
+
             android:paddingVertical="10dp"
-            android:spinnerMode="dropdown"
-            app:layout_constraintBottom_toTopOf="@+id/etPetAge"
+            android:textColor="@color/text_default_color"
+
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@+id/btn_savePet"
+
             app:layout_constraintEnd_toEndOf="parent"
+
             app:layout_constraintHorizontal_bias="0.5"
+
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etPetBreed"></Spinner>
+            app:layout_constraintTop_toBottomOf="@+id/etPetAge"
+            app:spinner_arrow_padding="15dp"
+            app:spinner_arrow_tint="@color/background_secondary_color"
+            app:spinner_divider_color="@color/background_secondary_color"
+            app:spinner_divider_show="true"
+            app:spinner_divider_size="1dp"
+            app:spinner_popup_background="@color/background_primary_color"
+            app:spinner_popup_end_padding="15dp"
+            app:spinner_popup_start_padding="15dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

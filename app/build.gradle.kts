@@ -55,10 +55,14 @@ android {
 dependencies {
     //SQLite
     implementation(libs.androidx.room.room.runtime)
+    //noinspection KaptUsageInsteadOfKsp
     kapt(libs.androidx.room.compiler)
     kapt(libs.androidx.room.room.compiler)
     implementation(libs.androidx.room.ktx)
     implementation(libs.androidx.lifecycle.livedata.ktx)
+
+    //Spinner
+    implementation(libs.powerspinner)
 
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.core.ktx)

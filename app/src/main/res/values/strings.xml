@@ -4,7 +4,13 @@
     <string name="GetAllPets">My pets</string>
     <string name="AddPet">Add pet</string>
     <string name="btn_save">Save</string>
-    <string name="etPetName_placeholder">Enter pet name</string>
-    <string name="etPetBreed_placeholder">Enter pet breed</string>
-    <string name="etPetAge_placeholder">Enter pet age</string>
+    <string name="etPetName_placeholder">Pet name</string>
+    <string name="etPetBreed_placeholder">Pet breed</string>
+    <string name="etPetAge_placeholder">Pet age</string>
+    <string name="etPetType_placeholder">Pet type</string>
+    <string-array name="petTypes">
+        <item name="Dog">Dog</item>
+        <item name="Cat">Cat</item>
+        <item name="Hamster">Hamster</item>
+    </string-array>
 </resources>
