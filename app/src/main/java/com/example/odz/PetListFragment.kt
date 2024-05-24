@@ -4,26 +4,49 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.asLiveData
-import com.example.odz.database.Database
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.odz.database.PetAdapter
+import com.example.odz.database.PetDatabaseManager
 import com.example.odz.databinding.FragmentPetListBinding
 
 class PetListFragment : Fragment() {
+    private lateinit var binding: FragmentPetListBinding
+    private lateinit var petDatabaseManager: PetDatabaseManager
+    private val petAdapter = PetAdapter(ArrayList())
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val binding: FragmentPetListBinding = FragmentPetListBinding
+        binding = FragmentPetListBinding
             .inflate(inflater, container, false)
-
-        val db = Database.getDatabase(requireContext())
-        db.getDao().getAllPets()
+        petDatabaseManager = PetDatabaseManager(requireContext())
+        initRecyclerView()
 
         return binding.root
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        petDatabaseManager.closeDb()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        petDatabaseManager.openDb()
+        fillAdapter()
+    }
+
+    private fun initRecyclerView() {
+        binding.petListView.apply {
+            layoutManager = LinearLayoutManager(requireContext())
+            adapter = petAdapter
+        }
+    }
+
+    private fun fillAdapter() {
+        petAdapter.updateAdapter(petDatabaseManager.readDbData())
+    }
 
 }

@@ -8,6 +8,7 @@
     <string name="etPetBreed_placeholder">Pet breed</string>
     <string name="etPetAge_placeholder">Pet age</string>
     <string name="etPetType_placeholder">Pet type</string>
+    <string name="tv_noElements">Nothing found</string>
     <string-array name="petTypes">
         <item name="Dog">Dog</item>
         <item name="Cat">Cat</item>
