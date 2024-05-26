@@ -9,6 +9,11 @@
     <string name="etPetAge_placeholder">Pet age</string>
     <string name="etPetType_placeholder">Pet type</string>
     <string name="tv_noElements">Nothing found</string>
+    <string name="default_text">Default</string>
+    <string name="pet_name_label">Name</string>
+    <string name="pet_breed_label">Breed</string>
+    <string name="pet_age_label">Age</string>
+    <string name="pet_type_label">Type</string>
     <string-array name="petTypes">
         <item name="Dog">Dog</item>
         <item name="Cat">Cat</item>

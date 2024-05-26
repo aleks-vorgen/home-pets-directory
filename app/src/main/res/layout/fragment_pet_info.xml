@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PetInfoFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        style="@style/constraint_layout_default_style"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <GridLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:orientation="horizontal"
+            android:rowCount="4"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tvLabel_name"
+                style="@style/textView_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="50dp"
+                android:text="@string/pet_name_label"
+                android:textAlignment="textStart" />
+
+            <TextView
+                android:id="@+id/tvPetName"
+                style="@style/textView_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/default_text"
+                android:textAlignment="textStart" />
+
+            <TextView
+                android:id="@+id/tvLabel_breed"
+                style="@style/textView_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pet_breed_label"
+                android:textAlignment="textStart" />
+
+            <TextView
+                android:id="@+id/tvPetBreed"
+                style="@style/textView_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/default_text"
+                android:textAlignment="textStart" />
+
+            <TextView
+                android:id="@+id/tvLabel_age"
+                style="@style/textView_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pet_age_label"
+                android:textAlignment="textStart" />
+
+            <TextView
+                android:id="@+id/tvPetAge"
+                style="@style/textView_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/default_text"
+                android:textAlignment="textStart" />
+
+            <TextView
+                android:id="@+id/tvLabel_type"
+                style="@style/textView_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pet_type_label"
+                android:textAlignment="textStart" />
+
+            <TextView
+                android:id="@+id/tvPetType"
+                style="@style/textView_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/default_text"
+                android:textAlignment="textStart" />
+
+        </GridLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

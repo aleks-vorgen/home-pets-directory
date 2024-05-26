@@ -6,11 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".AddPetFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/background_primary_color"
-        android:paddingHorizontal="80dp">
+    <androidx.constraintlayout.widget.ConstraintLayout style="@style/constraint_layout_default_style">
 
         <Button
             android:id="@+id/btn_savePet"
@@ -31,26 +27,21 @@
 
         <EditText
             android:id="@+id/etPetName"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
             android:ems="10"
-            android:fontFamily="@font/montserrat"
             android:hint="@string/etPetName_placeholder"
             android:inputType="text"
-            android:paddingHorizontal="15dp"
             android:singleLine="true"
-            android:textColor="@color/text_default_color"
-            android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@+id/etPetBreed"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_chainStyle="packed" />
+            app:layout_constraintVertical_chainStyle="packed"
+            style="@style/textView_style" />
 
         <EditText
             android:id="@+id/etPetBreed"
+            style="@style/textView_style"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -70,6 +61,7 @@
 
         <EditText
             android:id="@+id/etPetAge"
+            style="@style/textView_style"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"

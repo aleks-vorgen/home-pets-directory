@@ -4,7 +4,7 @@ import android.provider.BaseColumns
 
 object PetDatabaseNameClass {
     const val TABLE_NAME = "pets"
-
+    const val COLUMN_NAME_ID = "id"
     const val COLUMN_NAME_NAME = "name"
     const val COLUMN_NAME_BREED = "breed"
     const val COLUMN_NAME_TYPE = "type"

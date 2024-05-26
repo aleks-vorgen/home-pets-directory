@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.odz.database.Database
+import com.example.odz.database.PetAdapter
 import com.example.odz.database.PetDatabaseManager
 import com.example.odz.databinding.FragmentAddPetBinding
 import com.example.odz.model.Pet
@@ -17,6 +17,7 @@ import com.skydoves.powerspinner.IconSpinnerItem
 class AddPetFragment : Fragment() {
     private lateinit var binding: FragmentAddPetBinding
     private lateinit var petDatabaseManager: PetDatabaseManager
+    private lateinit var petAdapter: PetAdapter
     private var selectedItem: String = ""
 
     override fun onCreateView(
@@ -24,23 +25,28 @@ class AddPetFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentAddPetBinding.inflate(inflater, container, false)
-        petDatabaseManager = PetDatabaseManager(requireContext())
-
         initSpinnerDropdown()
         initOnButtonSaveClick()
+        petAdapter = PetAdapter(ArrayList(), requireContext())
+        petDatabaseManager = PetDatabaseManager(requireContext())
 
         return binding.root
     }
 
 
 
+    override fun onDestroy() {
+        super.onDestroy()
+        petDatabaseManager.closeDb()
+    }
+
     override fun onResume() {
         super.onResume()
         petDatabaseManager.openDb()
+        fillAdapter()
     }
 
     private fun initOnButtonSaveClick() {
-        val db = Database.getDatabase(requireContext())
         binding.btnSavePet.setOnClickListener {
             if (!validateInputs()) {
                 Toast.makeText(
@@ -54,15 +60,15 @@ class AddPetFragment : Fragment() {
                     null,
                     binding.etPetName.text.toString(),
                     binding.etPetBreed.text.toString(),
-                    selectedItem,
-                    Integer.parseInt(binding.etPetAge.text.toString())
+                    Integer.parseInt(binding.etPetAge.text.toString()),
+                    selectedItem
                 )
 
                 petDatabaseManager.insertToDB(
                     binding.etPetName.text.toString(),
                     binding.etPetBreed.text.toString(),
-                    selectedItem,
-                    Integer.parseInt(binding.etPetAge.text.toString())
+                    Integer.parseInt(binding.etPetAge.text.toString()),
+                    selectedItem
                 )
             }
         }
@@ -95,5 +101,9 @@ class AddPetFragment : Fragment() {
 
             lifecycleOwner = this@AddPetFragment
         }
+    }
+
+    private fun fillAdapter() {
+        petAdapter.updateAdapter(petDatabaseManager.readDbData())
     }
 }

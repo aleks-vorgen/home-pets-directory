@@ -12,6 +12,9 @@
         <action
             android:id="@+id/action_petListFragment_to_addPetFragment"
             app:destination="@id/addPet" />
+        <action
+            android:id="@+id/action_myPets_to_petInfoFragment"
+            app:destination="@id/petInfoFragment" />
     </fragment>
     <fragment
         android:id="@+id/addPet"
@@ -22,4 +25,9 @@
             android:id="@+id/action_addPetFragment_to_petListFragment"
             app:destination="@id/myPets" />
     </fragment>
+    <fragment
+        android:id="@+id/petInfoFragment"
+        android:name="com.example.odz.PetInfoFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_pet_info" />
 </navigation>

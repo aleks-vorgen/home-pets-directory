@@ -1,5 +1,6 @@
 package com.example.odz
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,8 +14,9 @@ import com.example.odz.databinding.FragmentPetListBinding
 class PetListFragment : Fragment() {
     private lateinit var binding: FragmentPetListBinding
     private lateinit var petDatabaseManager: PetDatabaseManager
-    private val petAdapter = PetAdapter(ArrayList())
+    private lateinit var petAdapter: PetAdapter
 
+    @SuppressLint("ResourceType")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -22,6 +24,8 @@ class PetListFragment : Fragment() {
         binding = FragmentPetListBinding
             .inflate(inflater, container, false)
         petDatabaseManager = PetDatabaseManager(requireContext())
+        petAdapter = PetAdapter(ArrayList(), requireContext())
+
         initRecyclerView()
 
         return binding.root
@@ -46,7 +50,11 @@ class PetListFragment : Fragment() {
     }
 
     private fun fillAdapter() {
-        petAdapter.updateAdapter(petDatabaseManager.readDbData())
+        val data = petDatabaseManager.readDbData()
+        petAdapter.updateAdapter(data)
+        if (data.isEmpty())
+            binding.tvNoElements.visibility = View.VISIBLE
+        else
+            binding.tvNoElements.visibility = View.GONE
     }
-
 }

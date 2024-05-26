@@ -1,19 +1,27 @@
 package com.example.odz.database
 
 import android.annotation.SuppressLint
+import android.content.Context
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.fragment.app.viewModels
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
+import com.example.odz.DataModel
 import com.example.odz.R
+import com.example.odz.model.Pet
 
-class PetAdapter(listMain: ArrayList<String>) : RecyclerView.Adapter<PetAdapter.PetHolder>() {
+class PetAdapter(listMain: ArrayList<Pet>, contextM: Context) :
+    RecyclerView.Adapter<PetAdapter.PetHolder>() {
     private var listArray = listMain
+    private var context = contextM
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PetHolder {
         val inflater = LayoutInflater.from(parent.context)
-        return PetHolder(inflater.inflate(R.layout.recycler_view_item, parent, false))
+        return PetHolder(inflater.inflate(R.layout.recycler_view_item, parent, false), context)
     }
 
     override fun onBindViewHolder(holder: PetHolder, position: Int) {
@@ -25,19 +33,27 @@ class PetAdapter(listMain: ArrayList<String>) : RecyclerView.Adapter<PetAdapter.
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun updateAdapter(listItems: List<String>) {
-        listArray.apply {
-            clear()
-            addAll(listItems)
-        }
+    fun updateAdapter(listItems: List<Pet>) {
+        listArray.clear()
+        listArray.addAll(listItems)
         notifyDataSetChanged()
     }
 
-    class PetHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class PetHolder(itemView: View, contextM: Context) : RecyclerView.ViewHolder(itemView) {
         private val tvName: TextView = itemView.findViewById(R.id.tvPetName)
+        private val context = contextM
 
-        fun setData(title: String) {
-            tvName.text = title
+        fun setData(pet: Pet) {
+            tvName.text = pet.name
+
+            itemView.setOnClickListener {
+                val bundle = Bundle().apply {
+                    putSerializable("pet", pet)
+                }
+
+                val navController = Navigation.findNavController(itemView)
+                navController.navigate(R.id.action_myPets_to_petInfoFragment, bundle)
+            }
         }
 
     }
