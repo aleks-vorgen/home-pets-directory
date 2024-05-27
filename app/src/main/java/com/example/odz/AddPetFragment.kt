@@ -64,12 +64,7 @@ class AddPetFragment : Fragment() {
                     selectedItem
                 )
 
-                petDatabaseManager.insertToDB(
-                    binding.etPetName.text.toString(),
-                    binding.etPetBreed.text.toString(),
-                    Integer.parseInt(binding.etPetAge.text.toString()),
-                    selectedItem
-                )
+                petDatabaseManager.insertToDB(pet)
             }
         }
     }

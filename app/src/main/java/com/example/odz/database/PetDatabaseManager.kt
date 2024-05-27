@@ -15,12 +15,12 @@ class PetDatabaseManager(context: Context) {
         db = petDatabaseHelper.writableDatabase
     }
 
-    fun insertToDB(name: String, breed: String, age: Int, type: String) {
+    fun insertToDB(pet: Pet) {
         val values = ContentValues().apply {
-            put(PetDatabaseNameClass.COLUMN_NAME_NAME, name)
-            put(PetDatabaseNameClass.COLUMN_NAME_BREED, breed)
-            put(PetDatabaseNameClass.COLUMN_NAME_AGE, age)
-            put(PetDatabaseNameClass.COLUMN_NAME_TYPE, type)
+            put(PetDatabaseNameClass.COLUMN_NAME_NAME, pet.name)
+            put(PetDatabaseNameClass.COLUMN_NAME_BREED, pet.breed)
+            put(PetDatabaseNameClass.COLUMN_NAME_AGE, pet.age)
+            put(PetDatabaseNameClass.COLUMN_NAME_TYPE, pet.type)
         }
 
         db?.insert(PetDatabaseNameClass.TABLE_NAME, null, values)
