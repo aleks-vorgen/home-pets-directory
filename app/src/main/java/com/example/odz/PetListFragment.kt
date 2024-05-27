@@ -24,7 +24,7 @@ class PetListFragment : Fragment() {
         binding = FragmentPetListBinding
             .inflate(inflater, container, false)
         petDatabaseManager = PetDatabaseManager(requireContext())
-        petAdapter = PetAdapter(ArrayList(), requireContext())
+        petAdapter = PetAdapter(ArrayList())
 
         initRecyclerView()
 

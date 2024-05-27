@@ -1,27 +1,23 @@
 package com.example.odz.database
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
-import com.example.odz.DataModel
 import com.example.odz.R
 import com.example.odz.model.Pet
 
-class PetAdapter(listMain: ArrayList<Pet>, contextM: Context) :
+class PetAdapter(listMain: ArrayList<Pet>) :
     RecyclerView.Adapter<PetAdapter.PetHolder>() {
     private var listArray = listMain
-    private var context = contextM
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PetHolder {
         val inflater = LayoutInflater.from(parent.context)
-        return PetHolder(inflater.inflate(R.layout.recycler_view_item, parent, false), context)
+        return PetHolder(inflater.inflate(R.layout.recycler_view_item, parent, false))
     }
 
     override fun onBindViewHolder(holder: PetHolder, position: Int) {
@@ -39,9 +35,8 @@ class PetAdapter(listMain: ArrayList<Pet>, contextM: Context) :
         notifyDataSetChanged()
     }
 
-    class PetHolder(itemView: View, contextM: Context) : RecyclerView.ViewHolder(itemView) {
+    class PetHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val tvName: TextView = itemView.findViewById(R.id.tvPetName)
-        private val context = contextM
 
         fun setData(pet: Pet) {
             tvName.text = pet.name

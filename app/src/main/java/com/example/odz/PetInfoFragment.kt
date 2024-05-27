@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
 import com.example.odz.databinding.FragmentPetInfoBinding
 import com.example.odz.model.Pet
 
@@ -22,13 +21,14 @@ class PetInfoFragment : Fragment() {
         arguments?.let {
             val pet = it.getSerializable("pet") as Pet
 
-            binding.tvPetName.text = pet.name
-            binding.tvPetBreed.text = pet.breed
-            binding.tvPetAge.text = pet.age.toString()
-            binding.tvPetType.text = pet.type
+            binding.apply {
+                tvPetName.text = pet.name
+                tvPetBreed.text = pet.breed
+                tvPetAge.text = pet.age.toString()
+                tvPetType.text = pet.type
+            }
         }
 
         return binding.root
     }
-
 }

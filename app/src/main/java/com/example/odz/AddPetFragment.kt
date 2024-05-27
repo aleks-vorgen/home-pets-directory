@@ -27,7 +27,7 @@ class AddPetFragment : Fragment() {
         binding = FragmentAddPetBinding.inflate(inflater, container, false)
         initSpinnerDropdown()
         initOnButtonSaveClick()
-        petAdapter = PetAdapter(ArrayList(), requireContext())
+        petAdapter = PetAdapter(ArrayList())
         petDatabaseManager = PetDatabaseManager(requireContext())
 
         return binding.root

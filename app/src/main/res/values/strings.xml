@@ -4,10 +4,6 @@
     <string name="GetAllPets">My pets</string>
     <string name="AddPet">Add pet</string>
     <string name="btn_save">Save</string>
-    <string name="etPetName_placeholder">Pet name</string>
-    <string name="etPetBreed_placeholder">Pet breed</string>
-    <string name="etPetAge_placeholder">Pet age</string>
-    <string name="etPetType_placeholder">Pet type</string>
     <string name="tv_noElements">Nothing found</string>
     <string name="default_text">Default</string>
     <string name="pet_name_label">Name</string>
